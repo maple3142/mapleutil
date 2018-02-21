@@ -2,13 +2,14 @@
 	"name": "mapleutil",
 	"version": "1.0.0",
 	"main": "dist/index.js",
-	"browser": "dist/mapleutil.js",
+	"browser": "dist/mapleutil.min.js",
 	"license": "MIT",
 	"devDependencies": {
 		"babel-core": "^6.26.0",
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
 		"bili": "^2.2.7",
+		"jsdom": "^11.6.2",
 		"mocha": "^5.0.1"
 	},
 	"scripts": {
