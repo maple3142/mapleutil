@@ -2,7 +2,7 @@ import * as common from './common'
 import * as node from './node'
 import * as browser from './browser'
 
-module.exports = {
+export default {
 	common,
 	node,
 	browser
