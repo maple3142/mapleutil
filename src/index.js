@@ -1,5 +1,5 @@
 import * as common from './common'
 
-export default {
+module.exports = {
 	common
 }

@@ -1,16 +1,23 @@
 {
 	"name": "mapleutil",
 	"version": "1.0.0",
-	"main": "dist/mapleutil.js",
+	"main": "dist/index.js",
+	"browser": "dist/mapleutil.js",
 	"license": "MIT",
 	"devDependencies": {
 		"babel-core": "^6.26.0",
 		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-stage-3": "^6.24.1",
 		"bili": "^2.2.7",
 		"mocha": "^5.0.1"
 	},
 	"scripts": {
-		"build": "bili --format cjs,es,umd,umd-min",
+		"build": "yarn build:node && yarn build:browser",
+		"build:node": "babel src --out-dir=dist",
+		"build:browser": "node browserbuild.js",
 		"test": "mocha --require babel-core/register"
+	},
+	"dependencies": {
+		"babel-cli": "^6.26.0"
 	}
 }
