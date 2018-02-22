@@ -17,7 +17,7 @@ describe('browser', function() {
 	})
 	it('loadCSS', function() {
 		return browser
-			.loadCSS('data:text/css;charset=utf-8;base64,KntkaXNwbGF5Om5vbmU7fQ==')
+			.loadCSS('data:text/css;charset=utf-8;base64,Ly90ZXh0IGNzcw==')
 			.then(el => assert(el === document.querySelector('link')))
 	})
 	it('loadJS', function() {
