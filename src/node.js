@@ -1,7 +1,7 @@
 /**
  * Read readable stream as stream
  * @param {Readable} stream
- * @returns {Promise<string>}
+ * @returns {Promise<string>} A promise contains a string
  */
 export function readStream(stream) {
 	return new Promise((resolve, reject) => {
