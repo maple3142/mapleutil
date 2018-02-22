@@ -1,6 +1,6 @@
 {
 	"name": "mapleutil",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"main": "dist/index.js",
 	"browser": "dist/mapleutil.min.js",
 	"license": "MIT",
