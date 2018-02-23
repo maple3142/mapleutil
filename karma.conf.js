@@ -3,8 +3,8 @@ module.exports = config => {
 	config.set({
 		basePath: '',
 		frameworks: ['mocha'],
-		files: ['test/browser.js'],
-		exclude: [],
+		files: ['test/*.js'],
+		exclude: ['test/node.js'],
 		preprocessors: {},
 		reporters: ['mocha'],
 		port: 9876,
