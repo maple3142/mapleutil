@@ -7,6 +7,12 @@
 export function random(min, max) {
 	return parseInt(Math.random() * (max - min) + min)
 }
+/**
+ * Generate permutation of array
+ * @param {Array<T>} arr An array of elements
+ * @param {number} len Length of array to generate
+ * @returns {Array<Array<T>>} Results array
+ */
 export function getPermutation(arr, len = arr.length) {
 	const result = []
 	function perm(cur = []) {

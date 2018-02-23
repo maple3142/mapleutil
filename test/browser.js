@@ -1,20 +1,8 @@
-import { JSDOM } from 'jsdom'
+import { isEqual } from 'lodash'
 import assert from 'assert'
 import { browser } from '../'
 
-const HTML_TMPL = '<!DOCTYPE HTML><html><head></head><body></body></html>'
-const JSDOM_OPTIONS = { runScripts: 'dangerously', resources: 'usable' }
-
 describe('browser', function() {
-	beforeEach(function() {
-		const { window } = new JSDOM(HTML_TMPL, JSDOM_OPTIONS)
-		global.window = window
-		global.document = window.document
-	})
-	afterEach(function() {
-		delete global.window
-		delete global.document
-	})
 	it('loadCSS', function() {
 		return browser
 			.loadCSS('data:text/css;charset=utf-8;base64,Ly90ZXh0IGNzcw==')
@@ -29,5 +17,30 @@ describe('browser', function() {
 		return browser.loadIMG(
 			'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
 		)
+	})
+	it('StorageWrapper #1: localStorage', function() {
+		const ls = browser.StorageWrapper.from(window.localStorage)
+		const obj = { a: 1, b: { c: '2' }, d: null }
+		ls.setItem('key', obj)
+		assert(isEqual(obj, ls.getItem('key')))
+		ls.removeItem('key')
+		assert(isEqual(null, ls.getItem('key')))
+	})
+	it('StorageWrapper #2: sessionStorage', function() {
+		const ls = browser.StorageWrapper.from(window.sessionStorage)
+		const obj = { a: 1, b: { c: '2' }, d: null }
+		ls.setItem('key', obj)
+		assert(isEqual(obj, ls.getItem('key')))
+		ls.removeItem('key')
+		assert(isEqual(null, ls.getItem('key')))
+	})
+	it('StorageWrapper #3: length', function() {
+		const ls = browser.StorageWrapper.from(window.localStorage)
+		ls.set('a', 1)
+		ls.set('b', 2)
+		ls.set('c', 3)
+		assert(ls.length === 3)
+		ls.remove('a')
+		assert(ls.length === 2)
 	})
 })

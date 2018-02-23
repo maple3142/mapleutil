@@ -40,3 +40,39 @@ export function loadIMG(src) {
 		el.src = src
 	})
 }
+/**
+ * StorageWrapper
+ * @description A wrapper for localStorage & sessionStorage
+ */
+export class StorageWrapper {
+	static from(storage) {
+		return new StorageWrapper(storage)
+	}
+	constructor(storage) {
+		this.__storage = storage
+		const keys = ['key', 'removeItem', 'clear']
+		for (let k of keys) {
+			this[k] = storage[k].bind(storage)
+		}
+	}
+	get length() {
+		return this.__storage.length
+	}
+	setItem(k, v) {
+		this.__storage.setItem(k, JSON.stringify(v))
+	}
+	getItem(k) {
+		return JSON.parse(this.__storage.getItem(k))
+	}
+
+	//aliases
+	set(k, v) {
+		this.__storage.setItem(k, JSON.stringify(v))
+	}
+	get(k) {
+		return JSON.parse(this.__storage.getItem(k))
+	}
+	remove(k) {
+		this.removeItem(k)
+	}
+}
