@@ -9,3 +9,16 @@ my util function collection
 ## Document?
 
 look `src/*.js`
+
+## CDN
+
+```
+https://unpkg.com/mapleutil
+```
+
+## Build & Test
+
+```bash
+yarn build
+yarn test #need to build before test
+```
