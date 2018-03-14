@@ -1,5 +1,7 @@
 # mapleutil
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/maple3142/mapleutil.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/maple3142/mapleutil.svg?branch=master)](https://travis-ci.org/maple3142/mapleutil)
 
 ## What is this?
