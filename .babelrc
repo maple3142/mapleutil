@@ -1,4 +1,31 @@
 {
-	"presets": [["es2015", { "loose": true }], "stage-3"],
-	"plugins": ["add-module-exports"]
+	"env": {
+		"build": {
+			"presets": [
+				[
+					"env",
+					{
+						"modules": false,
+						"targets": {
+							"browsers": [">= 5%"]
+						}
+					}
+				]
+			],
+			"plugins": ["add-module-exports"]
+		},
+		"test": {
+			"presets": [
+				[
+					"env",
+					{
+						"targets": {
+							"browsers": [">= 5%"]
+						}
+					}
+				]
+			],
+			"plugins": ["add-module-exports"]
+		}
+	}
 }
