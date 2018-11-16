@@ -10,7 +10,7 @@
 		"babel-loader": "^7.1.2",
 		"babel-plugin-add-module-exports": "^0.2.1",
 		"babel-preset-env": "^1.6.1",
-		"bili": "^3.0.6",
+		"bili": "^3.4.1",
 		"cross-env": "^5.1.4",
 		"karma": "^3.0.0",
 		"karma-chrome-launcher": "^2.2.0",
